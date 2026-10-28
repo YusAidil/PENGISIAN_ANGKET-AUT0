@@ -1,21 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
+  <title>AutoFill Angket</title>
   <style>
-    body { width: 220px; padding: 12px; font-family: sans-serif; }
-    select, button { width: 100%; margin-top: 8px; padding: 6px; }
+    :root {
+      --bg: #04070d;
+      --panel: #0a111e;
+      --line: #16233b;
+      --blue: #2f81f7;
+      --blue-soft: #7cb6ff;
+      --text: #e8eefb;
+      --muted: #7d8aa5;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      width: 300px;
+      padding: 18px 16px 16px;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(260px 140px at 100% 0%, rgba(47,129,247,.28), transparent 70%),
+        var(--bg);
+    }
+    header { margin-bottom: 14px; }
+    h1 { font-size: 17px; font-weight: 700; letter-spacing: .2px; }
+    h1 span { color: var(--blue-soft); }
+    p.sub { margin-top: 3px; font-size: 12px; color: var(--muted); }
+
+    fieldset { border: 0; padding: 0; display: grid; gap: 7px; }
+    legend { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+
+    .opt input { position: absolute; opacity: 0; }
+    .opt label {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: border-color .15s, background .15s, box-shadow .15s;
+    }
+    .opt label:hover { border-color: #264673; }
+    .opt input:focus-visible + label { outline: 2px solid var(--blue-soft); outline-offset: 2px; }
+    .opt input:checked + label {
+      border-color: var(--blue);
+      background: linear-gradient(90deg, rgba(47,129,247,.22), rgba(47,129,247,.06));
+      box-shadow: 0 0 0 1px var(--blue), 0 6px 18px rgba(47,129,247,.18);
+    }
+    .bars { display: flex; gap: 3px; align-items: flex-end; height: 14px; }
+    .bars i { width: 4px; border-radius: 2px; background: #1b2a47; }
+    .bars i:nth-child(1) { height: 5px; }
+    .bars i:nth-child(2) { height: 8px; }
+    .bars i:nth-child(3) { height: 11px; }
+    .bars i:nth-child(4) { height: 14px; }
+    .bars i.on { background: var(--blue-soft); }
+
+    button {
+      width: 100%; margin-top: 14px; padding: 11px;
+      border: 0; border-radius: 10px;
+      font: 600 14px "Segoe UI", system-ui, sans-serif;
+      color: #fff; cursor: pointer;
+      background: linear-gradient(135deg, #2f81f7, #1a4fb8);
+      box-shadow: 0 8px 20px rgba(47,129,247,.3);
+      transition: transform .1s, filter .15s;
+    }
+    button:hover { filter: brightness(1.12); }
+    button:active { transform: scale(.98); }
+    button:focus-visible { outline: 2px solid var(--blue-soft); outline-offset: 2px; }
+
+    #status { min-height: 16px; margin-top: 10px; font-size: 12px; color: var(--blue-soft); text-align: center; }
   </style>
 </head>
 <body>
-  <b>AutoFill Angket</b>
-  <select id="pilihan">
-    <option value="0">Sangat Baik</option>
-    <option value="1">Baik</option>
-    <option value="2">Cukup</option>
-    <option value="3">Kurang</option>
-  </select>
+  <header>
+    <h1>AutoFill <span>Angket</span></h1>
+    <p class="sub">Pilih jawaban, lalu isi semua pertanyaan sekaligus.</p>
+  </header>
+
+  <fieldset>
+    <legend>Jawaban yang dipilih</legend>
+    <div class="opt">
+      <input type="radio" name="pilihan" id="p0" value="0" checked>
+      <label for="p0">Sangat Baik <span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></label>
+    </div>
+    <div class="opt">
+      <input type="radio" name="pilihan" id="p1" value="1">
+      <label for="p1">Baik <span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></label>
+    </div>
+    <div class="opt">
+      <input type="radio" name="pilihan" id="p2" value="2">
+      <label for="p2">Cukup <span class="bars"><i class="on"></i><i class="on"></i><i></i><i></i></span></label>
+    </div>
+    <div class="opt">
+      <input type="radio" name="pilihan" id="p3" value="3">
+      <label for="p3">Kurang <span class="bars"><i class="on"></i><i></i><i></i><i></i></span></label>
+    </div>
+  </fieldset>
+
   <button id="isi">Isi Otomatis</button>
+  <div id="status" role="status"></div>
   <script src="popup.js"></script>
 </body>
 </html>

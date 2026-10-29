@@ -13,7 +13,7 @@ PENGISIAN_ANGKET-AUT0/
 ├── autofill-angket/
 │   ├── manifest.json
 │   ├── popup.html
-│   └── [ISI: file lain, misalnya popup.js]
+│   └── popup.js
 ├── LICENSE
 └── README.md
 ```

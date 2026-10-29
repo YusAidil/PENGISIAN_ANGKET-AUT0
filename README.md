@@ -5,7 +5,6 @@ Chrome extension untuk mengisi angket berbasis radio button secara otomatis, sup
 ## Fitur
 - Isi otomatis radio button pada halaman angket
 - Dijalankan lewat popup extension di halaman yang sedang dibuka
-- [ISI: cara jawaban dipilih, misalnya skala tertentu, acak, atau pilihan sendiri]
 
 ## Struktur Folder
 ```
@@ -30,7 +29,7 @@ PENGISIAN_ANGKET-AUT0/
 ## Cara Pakai
 1. Buka halaman angket yang ingin diisi
 2. Klik ikon **AutoFill Angket** di toolbar Chrome
-3. [ISI: langkah di popup, misalnya pilih opsi lalu klik tombol isi]
+3. pilih opsi lalu klik tombol isi
 4. Periksa hasilnya sebelum menekan tombol kirim
 
 ## Izin yang Digunakan

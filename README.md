@@ -1,6 +1,6 @@
 # PENGISIAN_ANGKET-AUT0
 
-Chrome extension (Manifest V3) untuk mengisi angket berbasis radio button secara otomatis, supaya tidak perlu klik jawaban satu per satu.
+Chrome extension untuk mengisi angket berbasis radio button secara otomatis, supaya tidak perlu klik jawaban satu per satu.
 
 ## Fitur
 - Isi otomatis radio button pada halaman angket
